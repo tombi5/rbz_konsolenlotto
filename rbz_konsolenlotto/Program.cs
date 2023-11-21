@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            int[] lottoTipp = { 1, 2, 3, 4, 5, 6 };
+            int[] lottoTipp = new int[6];
             int[] lottoZahlen = new int[6];
             Random random = new Random();
 
@@ -15,11 +15,19 @@
                 int number;
                 if (int.TryParse(input, out number))
                 {
-                    lottoTipp[i] = number;
+                    if (number >= 1 && number <= 49 && !lottoTipp.Contains(number))
+                    {
+                        lottoTipp[i] = number;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Falscher input. Versuche es nochmal.");
+                        i--;
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Invalider input. Versuche es nochmal.");
+                    Console.WriteLine("Falscher input. Versuche es nochmal.");
                     i--;
                 }
             }
@@ -44,12 +52,10 @@
             }
 
             Console.WriteLine("Anzahl der Treffer: " + treffer);
+            Array.Sort(lottoZahlen);
+            Console.WriteLine("Lottozahlen: " + string.Join(", ", lottoZahlen));
 
-            // Zusatzaufgaben
-            // 4. Lesen Sie sechs frei gewählte Lottozahlen über die Konsole in das Array lottoTipp ein, statt diese wie in Aufgabe 1 als int-Literale festzulegen.
-            // 5. Überprüfen Sie, dass der Tippgeber (Zufallsgenerator oder User) sechs unterschiedliche Zahlen zwischen 1 und 49 zieht (Dopplungen nicht zulassen).
-            // 6. Recherchieren Sie, wie Sie das Array lottoZahlen aufsteigend sortieren können.
-            
+
         }
     }
 }
