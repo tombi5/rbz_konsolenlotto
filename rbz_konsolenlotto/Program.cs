@@ -13,24 +13,9 @@
                 lottoZahlen[i] = random.Next(1, 50);
             }
 
-            int treffer = 0;
-
-            for (int i = 0; i < lottoTipp.Length; i++)
-            {
-                for (int j = 0; j < lottoZahlen.Length; j++)
-                {
-                    if (lottoTipp[i] == lottoZahlen[j])
-                    {
-                        treffer++;
-                        Console.WriteLine("Treffer: " + lottoTipp[i]);
-                    }
-                }
-            }
-
-            Console.WriteLine("Anzahl der Treffer: " + treffer);
 
             // Zusatzaufgaben
-            Console.WriteLine("Bitte geben Sie sechs unterschiedliche Lottozahlen zwischen 1 und 49 ein:");
+            Console.WriteLine("Bitte gebe sechs unterschiedliche zwischen 1 und 49 ein:");
             int[] lottoTippEingabe = new int[6];
 
             for (int i = 0; i < lottoTippEingabe.Length; i++)
@@ -71,6 +56,24 @@
                 {
                     Console.WriteLine(zahl);
                 }
+
+                int treffer = 0;
+
+                for (int i = 0; i < lottoTipp.Length; i++)
+                {
+                    for (int j = 0; j < lottoZahlen.Length; j++)
+                    {
+                        if (lottoTipp[i] == lottoZahlen[j])
+                        {
+                            treffer++;
+                            Console.WriteLine("Treffer: " + lottoTipp[i]);
+                        }
+                    }
+                }
+
+                Console.WriteLine("Anzahl der Treffer: " + treffer);
+
+
             }
             else
             {
