@@ -4,6 +4,7 @@
     {
         static void Main(string[] args)
         {
+            int treffer = 0;
             int[] lottoTipp = new int[6];
             int[] lottoZahlen = new int[6];
             Random random = new Random();
@@ -36,8 +37,6 @@
             {
                 lottoZahlen[i] = random.Next(1, 50);
             }
-
-            int treffer = 0;
 
             for (int i = 0; i < lottoZahlen.Length; i++)
             {
