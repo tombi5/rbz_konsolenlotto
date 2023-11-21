@@ -35,7 +35,15 @@
 
             for (int i = 0; i < lottoZahlen.Length; i++)
             {
-                lottoZahlen[i] = random.Next(1, 50);
+                int nzahl = random.Next(1, 50);
+                while (lottoZahlen.Contains(nzahl))
+                {
+                    //Console.WriteLine("hehehhea" + nzahl);
+                    nzahl = random.Next(1, 50);
+                }
+                lottoZahlen[i] = nzahl;
+
+
             }
 
             for (int i = 0; i < lottoZahlen.Length; i++)
@@ -53,6 +61,8 @@
             Console.WriteLine("Anzahl der Treffer: " + treffer);
             Array.Sort(lottoZahlen);
             Console.WriteLine("Lottozahlen: " + string.Join(", ", lottoZahlen));
+            Console.ReadLine();
+            Main(args);
 
 
         }
